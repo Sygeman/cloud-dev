@@ -32,3 +32,22 @@ VS Code with Rancher
 
 - Select sandbox in rancher menu and click Cluster Explorer
 - Click Apps & Marketpalce, find and install Longhorn
+
+- Create volume code ~30Gb with Storage Class - longhorn
+- Deploy code service
+    image: ghcr.io/linuxserver/code-server:v3.9.0-ls69
+    envs:
+        SUDO_PASSWORD: 123
+        PASSWORD: 123 (web ui password)
+        DOCKER_MODS: linuxserver/mods:code-server-zsh
+    volumes:
+        vol1 (Use an existing persistent volume (claim))
+        Persistent Volume Claim: code
+        Mount Point: /config
+- Add code ingress 
+     Specify a hostname to use: code.site.com
+     Target: code
+     Port: 8443
+- Add new A DNS record to cloudflare:
+    Name: code 
+    Content: paste cluster ip here
