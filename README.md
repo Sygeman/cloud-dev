@@ -15,17 +15,20 @@ VS Code with Rancher
 - Run
     docker-compose up -d
 
-- Get CPX31 (CPX41 better)
+- Get CPX41 (Cluster)
 - Connect via ssh
 - Intall docker via https://github.com/docker/docker-install
     curl -fsSL https://get.docker.com -o get-docker.sh
     sh get-docker.sh
-- Run
-    apt-get install open-iscsi
+- Install packages for Longhorn
+    apt-get install open-iscsi nfs-common
 
 - Open Ranhcer ranhcer.site.com
 - Click Add cluster
 - Select Create a new Kubernetes cluster - Existing nodes
-- Type some name - sandbox and click Next
-- Select worker role only
-- Paste code from step 2 to server console
+- Type some name - sandbox and click next
+- Step 1: Select all roles
+- Step 2: Paste code to Cluster
+
+- Select sandbox in rancher menu and click Cluster Explorer
+- Click Apps & Marketpalce, find and install Longhorn
