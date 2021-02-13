@@ -1,0 +1,15 @@
+version: "3"
+  services:
+    rancher:
+      image: rancher/rancher:v2.5.5
+      privileged: true
+      volumes:
+        # SSL/TLS - Origin Server - Create Certificate
+        - ./ssl/cert.pem:/etc/rancher/ssl/cert.pem
+        - ./ssl/key.pem:/etc/rancher/ssl/key.pem
+        # https://support.cloudflare.com/hc/en-us/articles/115000479507#h_30e5cf09-6e98-48e1-a9f1-427486829feb  step 4 (Cloudflare Origin CA — RSA Root)
+        - ./ssl/cacerts.pem:/etc/rancher/ssl/cacerts.pem
+      ports:
+        - 80:80
+        - 443:443
+      restart: unless-stopped
