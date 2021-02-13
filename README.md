@@ -1,5 +1,5 @@
 # cloud-dev
-VS Code with Rancher
+Dev workspace with VSCode, Rancher, Cloudflare and Hetzner
 
 - Get cx21 rancher
 - Connect via ssh
